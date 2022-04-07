@@ -1,13 +1,33 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: rgb(141, 137, 137);
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
 }
 
 .box-characters {
-    background-color: rgb(91, 81, 81);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .box-character {
-    display: flex;
+    background-color: aliceblue;
     border: 1px solid;
+    padding: 2rem;
+    margin: 2rem;
+    text-align: center;
 }

@@ -1,20 +1,19 @@
 <html lang="en">
 <head>
-    <%- include("../partials/head.ejs"); %>
+    <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <%- include("../partials/navigation.ejs"); %>
+    <%- include("../partials/navigation.ejs") %>
     <main>
+        <h1><%= title %></h1>
         <div class="box-characters">
             <% data.forEach(function(singleData) { %>
                 <div class="box-character">
-                    <%= singleData.name %>
-                    <div class="box-character-body">
-                        <img src=<%= singleData.image %> alt="">
-                        <%= singleData.species %>
-                        <%= singleData.status %>
-                    </div>
-                </div>     
+                    <h3><%= singleData.name %></h3> 
+                    <img src=<%= singleData.image %> alt="">
+                    <p>Specie: <%= singleData.species %></p>
+                    <p>Status: <%= singleData.status %></p>
+                </div>      
             <% }) %>
         </div>
     </main>
