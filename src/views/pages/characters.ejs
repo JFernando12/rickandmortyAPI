@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <%- include("../partials/head.ejs"); %>
+</head>
+<body>
+    <%- include("../partials/navigation.ejs"); %>
+    <main>
+        <div class="box-characters">
+            <% data.forEach(function(singleData) { %>
+                <div class="box-character">
+                    <%= singleData.name %>
+                    <div class="box-character-body">
+                        <img src=<%= singleData.image %> alt="">
+                        <%= singleData.species %>
+                        <%= singleData.status %>
+                    </div>
+                </div>     
+            <% }) %>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs"); %>
+</body>
+</html>

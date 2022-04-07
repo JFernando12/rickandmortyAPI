@@ -4,7 +4,7 @@
   "description": "Utilizando la api de rick and morty para atraer los personajes",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "nodemon src/app.js"
   },
   "keywords": [
     "asincronismo",
@@ -14,6 +14,7 @@
   "author": "fernando",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "morgan": "^1.10.0",

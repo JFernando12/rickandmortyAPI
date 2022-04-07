@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box-characters {
+    background-color: rgb(91, 81, 81);
+}
+
+.box-character {
+    display: flex;
+    border: 1px solid;
+}

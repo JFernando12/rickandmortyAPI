@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(require("./routes/index"));
 
 //Statics
-app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirname, "public")));
 
 app.listen(app.get("port"), () => {
     console.log("Server on port 3000");
