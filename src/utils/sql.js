@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const { resolve } = require("path");
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -15,7 +16,18 @@ const connect = () => {
     })
 }
 
-const add = (name, specie, status, img_url) => {
+const showCharacter = () => {
+    return new Promise((resolve, reject) => {
+        const sql = `SELECT * FROM personalized`
+        connection.query(sql, function(err, row, fields){
+            (err)
+            ? reject(err)
+            : resolve(row)
+        })
+    })
+}
+
+const addCharacter = (name, specie, status, img_url) => {
     return new Promise((resolve, reject) => {
         const sql = `INSERT INTO personalized (name, specie, status, img_url, id) VALUES ("${name}", "${specie}", "${status}", "${img_url}" ,${null})`
         connection.query(sql, function(err, row, fields) {
@@ -26,6 +38,19 @@ const add = (name, specie, status, img_url) => {
     })
 }
 
+const deleteCharacter = (id) => {
+    return new Promise((resolve, reject) => {
+        const sql = `DELETE FROM personalized WHERE id=${id}`;
+        connection.query(sql, function(err, row, fields){
+            (err)
+            ? reject(err)
+            : reject(row)
+        })
+    })
+}
+
 module.exports = {
-    add: add
+    addCharacter: addCharacter,
+    deleteCharacter: deleteCharacter,
+    showCharacter: showCharacter
 }
