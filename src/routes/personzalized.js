@@ -1,5 +1,5 @@
 const express = require("express");
-const { showCharacter } = require("../utils/sql");
+const { showCharacter, deleteCharacter, addCharacter, selectCharacter } = require("../utils/sql");
 const add = require ("../utils/sql");
 const router = express.Router();
 
@@ -19,13 +19,24 @@ router.post("/add", async(req, res) => {
         name, specie, status, img_url
     }
     console.log(character);
-    await add.addCharacter(character.name, character.specie, character.status, character.img_url)
-    res.send("Listo")
+    await addCharacter(character.name, character.specie, character.status, character.img_url)
+    res.redirect("/personalized")
 })
 
 router.get("/modify", async(req, res) => {
     results = await(showCharacter());
     res.render("pages/modify", {data: results, title: "Modify"});
+})
+
+router.get("/delete/:id", async(req, res) => {
+    await(deleteCharacter(req.params.id));
+    console.log(req.params.id)
+    res.redirect("/personalized/modify")
+})
+
+router.get("/edit/:id", async(req, res) => {
+    const character = await(selectCharacter(req.params.id));
+    console.log(character)
 })
 
 module.exports = router;

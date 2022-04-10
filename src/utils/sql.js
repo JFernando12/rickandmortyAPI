@@ -44,7 +44,18 @@ const deleteCharacter = (id) => {
         connection.query(sql, function(err, row, fields){
             (err)
             ? reject(err)
-            : reject(row)
+            : resolve(row)
+        })
+    })
+}
+
+const selectCharacter = (id) => {
+    return new Promise((resolve, reject) => {
+        const sql = `SELECT * FROM personalized WHERE id=${id}`;
+        connection.query(sql, function(err, row, fields){
+            (err)
+            ? reject(err)
+            : resolve(row);
         })
     })
 }
@@ -52,5 +63,6 @@ const deleteCharacter = (id) => {
 module.exports = {
     addCharacter: addCharacter,
     deleteCharacter: deleteCharacter,
-    showCharacter: showCharacter
+    showCharacter: showCharacter,
+    selectCharacter: selectCharacter
 }

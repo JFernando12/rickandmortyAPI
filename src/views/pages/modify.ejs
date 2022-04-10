@@ -1,11 +1,27 @@
 <html lang="en">
 <head>
-    <%- include("../partials/head.ejs")%>
+    <%- include("../partials/head.ejs") %>
 </head>
 <body>
     <%- include("../partials/navigation.ejs")%>
 
-    
+    <main>
+        <h1><%= title%></h1>
+        <% data.forEach(function(singleData) {%>
+            <p>id: <%= singleData.id%></p>
+            <a href="/personalized/delete/<%= singleData.id%>">Delete</a>
+            <a href="/personalized/edit/<%= singleData.id%>">Edit</a>
+        <% }) %>
+        
+        <label for="name">Name</label>
+        <input type="text" name="name" id="inputName" value="name">
+        <label for="specie">Specie</label>
+        <input type="text" name="specie">
+        <label for="status">Status</label>
+        <input type="text" name="status">
+        <label for="url_img">Image</label>
+        <input type="text" name="url_img">
+    </main>
 
     <%- include("../partials/footer.ejs")%>
 </body>
